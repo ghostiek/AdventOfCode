@@ -45,6 +45,7 @@ print(result)
     ["P"]
 ]"""
 
+# Part 2
 state = [
     ["C", "Q", "B"],
     ["Z", "W", "Q", "R"],
@@ -58,17 +59,14 @@ state = [
 ]
 
 for instruction in instructions:
-    print("")
     quantity, source, destination = helper.get_instruction(instruction)
     items = reversed(state[source][:quantity])
     for val in items:
         state[destination].insert(0, val)
     state[source] = state[source][quantity:]
-    print("")
 
 result = ""
 for letters in state:
     result += letters[0]
 
-print(state)
 print(result)
